@@ -34,8 +34,12 @@ public class DBService {
 
 		Chamado cha1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", tec1, cli1);
 
+		Tecnico tec2 = new Tecnico(null, "Tec San", "711.810.760-30", "tec@kane.com.br", "123");
+		tec1.addPerfil(Perfil.ADMIN);
+
 		tecnicoRepository.saveAll(Arrays.asList(tec1));
 		clienteRepository.saveAll(Arrays.asList(cli1));
 		chamadoRepository.saveAll(Arrays.asList(cha1));
+		tecnicoRepository.saveAll(Arrays.asList(tec2));
     }
 }
