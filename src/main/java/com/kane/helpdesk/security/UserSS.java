@@ -7,19 +7,28 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserSS implements UserDetails{
 
+    private Integer id;
+    private String email;
+    private String senha;
+    private Collection<? extends GrantedAuthority> authorities;
+
+    public Integer getId() {
+        return id;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return senha;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
