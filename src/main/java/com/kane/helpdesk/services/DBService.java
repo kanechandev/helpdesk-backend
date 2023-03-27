@@ -3,6 +3,7 @@ package com.kane.helpdesk.services;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.kane.helpdesk.domain.Chamado;
@@ -24,17 +25,19 @@ public class DBService {
 	private ClienteRepository clienteRepository;
 	@Autowired
 	private ChamadoRepository chamadoRepository;
+	@Autowired
+	private BCryptPasswordEncoder encoder;
     
     public void instanciaDB(){
 
-        Tecnico tec1 = new Tecnico(null, "Kane San", "052.421.729-75", "kane@kane.com.br", "123");
+        Tecnico tec1 = new Tecnico(null, "Kane San", "052.421.729-75", "kane@kane.com.br", encoder.encode("123"));
 		tec1.addPerfil(Perfil.ADMIN);
 
-		Cliente cli1 = new Cliente(null, "Shein", "333.178.020-06", "shein@shein.com", "123");
+		Cliente cli1 = new Cliente(null, "Shein", "333.178.020-06", "shein@shein.com", encoder.encode("123"));
 
 		Chamado cha1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro chamado", tec1, cli1);
 
-		Tecnico tec2 = new Tecnico(null, "Tec San", "711.810.760-30", "tec@kane.com.br", "123");
+		Tecnico tec2 = new Tecnico(null, "Tec San", "711.810.760-30", "tec@kane.com.br", encoder.encode("123"));
 		tec1.addPerfil(Perfil.ADMIN);
 
 		tecnicoRepository.saveAll(Arrays.asList(tec1));
