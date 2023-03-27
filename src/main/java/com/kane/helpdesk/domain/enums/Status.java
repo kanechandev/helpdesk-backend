@@ -31,12 +31,12 @@ public enum Status {
         this.descricao = descricao;
     }
 
-    public static Perfil toEnum(Integer codigo){
+    public static Status toEnum(Integer codigo){
         if(codigo == null){
             return null;
         }
 
-        for(Perfil x : Perfil.values()){
+        for(Status x : Status.values()){
             if(codigo.equals(x.getCodigo())){
                 return x;
             }

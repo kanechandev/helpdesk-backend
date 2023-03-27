@@ -31,12 +31,12 @@ public enum Prioridade {
         this.descricao = descricao;
     }
 
-    public static Perfil toEnum(Integer codigo){
+    public static Prioridade toEnum(Integer codigo){
         if(codigo == null){
             return null;
         }
 
-        for(Perfil x : Perfil.values()){
+        for(Prioridade x : Prioridade.values()){
             if(codigo.equals(x.getCodigo())){
                 return x;
             }
